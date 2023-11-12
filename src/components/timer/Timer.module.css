@@ -1,0 +1,26 @@
+.timer {
+    height: 200px;
+    width: 600px;
+    text-align: center;
+    border: black 1px solid;
+    border-radius: 20px;;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: fit-content;
+    margin-top: 30px;
+
+}
+
+.standard {
+
+}
+
+.time {
+    text-align: start;
+    font-size: 30px;
+    color: #544c4c;
+    background: #98d0da;
+}

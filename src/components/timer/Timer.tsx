@@ -1,7 +1,9 @@
 import React, {Component, useEffect, useState} from 'react';
+import timeZones from "../../utils/time-zones";
+import style from './Timer.module.css';
 
 interface IPropsTimer {
-
+    timeZone: string;
 }
 
 interface IStateTimer {
@@ -11,12 +13,11 @@ interface IStateTimer {
 const colors = ['red', 'green', 'blue', 'yellow'];
 let intervalTic;
 let intervalColor;
-const Timer = (props: IPropsTimer) => {
+const Timer = ({timeZone}: IPropsTimer) => {
     const [time, setTime] = useState(new Date());
     const [colorIndex, setColorIndex] = useState(0);
 
     function tic() {
-        console.log('change time');
         setTime(new Date());
     }
 
@@ -39,9 +40,11 @@ const Timer = (props: IPropsTimer) => {
     }
 
     return (
-        <div>
-            <h2 style={{color: getColor()}}>Current time</h2>
-            <p>{time.toLocaleTimeString()}</p>
+        <div className={`${style.timer} ${style.standard}`}>
+            <div className={style.container}>
+                <h2 style={{color: getColor()}}>Current time in {timeZone}</h2>
+                <p className={style.time}>{time.toLocaleTimeString('en-GB', {timeZone})}</p>
+            </div>
         </div>
     );
 }
